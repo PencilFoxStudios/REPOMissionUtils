@@ -33,7 +33,7 @@ public class MissionQueue
                 if (IsEmpty())
                 {
                     // If the queue is empty, wait for a bit before checking again
-                    Thread.Sleep(100);
+                    Thread.Sleep(1000);
                     continue;
                 }
                 else
