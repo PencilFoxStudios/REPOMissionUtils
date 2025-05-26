@@ -14,7 +14,7 @@ public class MissionUIPatch
     // First we have to grab the original method before we overwrite it
     // with our own version. This is done by using the HarmonyReversePatch
 
-    [HarmonyReversePatch]
+    [HarmonyReversePatch(HarmonyReversePatchType.Snapshot)]
     [HarmonyPatch(typeof(MissionUI), "MissionText")]
     public static void MissionText(MissionUI __instance, string message, Color colorMain, Color colorFlash, float desiredTime = 3f)
     {

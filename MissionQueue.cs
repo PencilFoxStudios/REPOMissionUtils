@@ -30,6 +30,7 @@ public class MissionQueue
         {
             while (!token.IsCancellationRequested)
             {
+                MissionUtils.Logger.LogDebug("MissionQueue: Checking for missions to display... -->" + _queue.Count);
                 if (IsEmpty())
                 {
                     // If the queue is empty, wait for a bit before checking again
@@ -47,7 +48,7 @@ public class MissionQueue
                         return;
                     }
                     MissionOptions mission = Dequeue();
-                    
+
                     if (mission != null)
                     {
                         // Call the original method with the mission options
