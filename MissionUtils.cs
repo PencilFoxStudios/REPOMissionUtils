@@ -61,7 +61,7 @@ public class MissionUtils : BaseUnityPlugin
     {
         public Color color1 { get; set; }
         public Color color2 { get; set; }
-        public string msg { get; set; }
+        public string? msg { get; set; }
         public float time { get; set; }
 
         public static byte[] Serialize(object customObject)

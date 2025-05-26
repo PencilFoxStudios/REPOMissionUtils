@@ -28,12 +28,12 @@ public class MissionUIPatch
     [HarmonyPatch(typeof(MissionUI))]
     [HarmonyPatch("MissionText")]
     [HarmonyPrefix]
-    private static void MissionText_Prefix(MissionUI __instance, string message, Color colorMain, Color colorFlash, float time = 3f)
+    private static bool MissionText_Prefix(MissionUI __instance, string message, Color colorMain, Color colorFlash, float time = 3f)
     {
         if (_previousMissionText == message)
         {
             // If the message is the same as the previous one, we don't need to display it again.
-            return;
+            return false;
         }
         // If it's currently displaying a mission, we force it to display the new one.
         // This is preventable by setting Config.TimeBetweenMissionDisplays to a higher value.
@@ -50,6 +50,7 @@ public class MissionUIPatch
 
             MissionUtils.Logger.LogInfo($"Broadcasting mission: {mission.msg}");
             PencilNetwork.SendMission(mission);
+            return false; // Prevent the original method from being called
         }
         else
         {
@@ -58,6 +59,6 @@ public class MissionUIPatch
             MissionQueue.Enqueue(mission);
         }
         
-        return;
+        return false;
     }
 }

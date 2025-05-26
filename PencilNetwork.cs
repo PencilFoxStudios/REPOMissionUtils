@@ -7,7 +7,7 @@ namespace MissionUtils;
 
 class PencilNetwork
 {
-    public static NetworkedEvent NewBroadcastedMissionEvent;
+    public static NetworkedEvent? NewBroadcastedMissionEvent;
 
     public static void InitNetworking()
     {

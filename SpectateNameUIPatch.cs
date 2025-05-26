@@ -26,11 +26,6 @@ public class SpectateNameUIPatch
     {
         if (MissionUtilsConfigActivator.PencilConfig.DeadPlayersCanSeeMissions && MissionUI.instance?.Text != null)
         {
-            if (playerName != __instance.Text.text)
-            {
-                // If the name has changed, update it
-                __instance.Text.text = playerName;
-            }
             // Update the mission text if it's not empty
             if (!string.IsNullOrEmpty(MissionUI.instance.Text.text))
             {
