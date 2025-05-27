@@ -1,8 +1,8 @@
 {
     "name": "MissionUtils",
-    "version_number": "1.0.0",
+    "version_number": "1.0.2",
     "website_url": "https://github.com/PencilFoxStudios/REPOMissionUtils",
-    "description": "A collection of utilities for developers to manage the mission UI in the game.",
+    "description": "A patch to make the mission system more flexible and easier for modders to use.",
     "dependencies": [
         "BepInEx-BepInExPack-5.4.2100",
         "Zehs-REPOLib-2.1.0"

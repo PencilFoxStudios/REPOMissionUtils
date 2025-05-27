@@ -32,6 +32,7 @@ public class MissionUIPatch
     {
         if (_previousMissionText == message)
         {
+            MissionUtils.Logger.LogWarning("MissionUIPatch: Skipping duplicate mission message: " + message);
             // If the message is the same as the previous one, we don't need to display it again.
             return false;
         }
@@ -40,14 +41,13 @@ public class MissionUIPatch
         _previousMissionText = message;
         
         MissionOptions mission = MissionOptions.Create(message, colorMain, colorFlash, time);
-        bool broadcast = mission.msg.StartsWith("%broadcast%");
+        bool broadcast = mission.msg.StartsWith("%broadcast%") && SemiFunc.IsMultiplayer() && SemiFunc.IsMasterClient();
         // If broadcast is true, send the mission to all players INCLUDING the master client
         MissionUtils.Logger.LogInfo($"Broadcast: {mission.msg} ({broadcast})");
+        mission.msg = message.Replace("%broadcast%", "");
         if (broadcast)
         {
             // Remove the %broadcast% prefix from the message
-            mission.msg = message.Replace("%broadcast%", "");
-
             MissionUtils.Logger.LogInfo($"Broadcasting mission: {mission.msg}");
             PencilNetwork.SendMission(mission);
             return false; // Prevent the original method from being called

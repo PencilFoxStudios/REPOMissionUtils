@@ -1,5 +1,5 @@
 # MissionUtils
-A BETA helper plugin that patches ``MissionUI`` for it to be easier for modders to add their own mission ("FOCUS >") messages. It currently offers a queue system for displaying messages to players, and aims to not interfere with the default ``MissionUI`` system.
+A BETA helper plugin for R.E.P.O. that patches ``MissionUI`` for it to be easier for modders to add their own mission ("FOCUS >") messages. It currently offers a queue system for displaying messages to players, and aims to not interfere with the default ``MissionUI`` system.
 
 To use it, simply call ``MissionUI.instance.MissionText()`` with the message you want to display as you normally would. The plugin will handle the rest, including queuing them and displaying them in the correct order, with a configurable delay between messages.
 

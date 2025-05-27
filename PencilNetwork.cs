@@ -27,7 +27,7 @@ class PencilNetwork
         if (SemiFunc.IsMultiplayer() && SemiFunc.IsMasterClient())
         {
             NewBroadcastedMissionEvent.RaiseEvent(options, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
-            MissionUtils.Logger.LogInfo($"Sent mission: {options.msg}");
+            MissionUtils.Logger.LogInfo($"NETACTION: Sent mission: {options.msg}");
         }
         else
         {

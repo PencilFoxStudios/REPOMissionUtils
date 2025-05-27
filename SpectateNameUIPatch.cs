@@ -14,7 +14,7 @@ public class SpectateNameUIPatch
         string missionText = MissionUI.instance.Text.text;
         if (MissionUtilsConfigActivator.PencilConfig.DeadPlayersCanSeeMissions && !string.IsNullOrEmpty(missionText))
         {
-            name = $"{name}<br><size=10>{missionText}</size>";
+            name = $"{name}<br><size=12>{missionText}</size>";
         }
         __instance.Text.text = name;
         
@@ -29,7 +29,7 @@ public class SpectateNameUIPatch
             // Update the mission text if it's not empty
             if (!string.IsNullOrEmpty(MissionUI.instance.Text.text))
             {
-                __instance.Text.text += $"<br><size=10>{MissionUI.instance.Text.text}</size>";
+                __instance.Text.text = $"{playerName}<br><size=12>{MissionUI.instance.Text.text}</size>";
             }
         }
     }
